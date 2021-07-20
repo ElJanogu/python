@@ -7,7 +7,7 @@ class A:
         self.b = _b
 
     def hello(self):
-        print("This is a : " + str(self.a) + " this is b : " + str(self.b))
+        return "This is a : " + str(self.a) + " this is b : " + str(self.b)
 
 class Z(A):
     c = -1
@@ -17,15 +17,14 @@ class Z(A):
         self.c = _c
 
     def greeting(self):
-        print("This is a : " + str(self.a) + " this is b : " + str(self.b) + " this is c : " + str(self.c))
+        return super(Z, self).hello() + " this is c : " + str(self.c)
 
 def main():
-    print("startet")
     a1 = A("Python", 42)
-    a1.hello()
+    print(a1.hello())
 
     a2 = Z("Hello", 7, "There")
-    a2.hello()
-    a2.greeting()
+    print(a2.hello())
+    print(a2.greeting())
 
 main()
